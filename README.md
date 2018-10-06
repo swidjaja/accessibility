@@ -1,6 +1,6 @@
 Hello! Welcome to my Github repo dedicated to one of my passions, Web accessibility.
 
-I plan to have the following materials to this repository
+I plan to have the following materials in this repository
 - Experiments on topics in Web accessibility
 - Readily used libraries/utils to enhance Web accessibility
 
