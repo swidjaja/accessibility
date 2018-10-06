@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Accessible Tabs</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <header>
+      <!-- header content -->
+    </header>
+    <nav>
+      <!-- nav content -->
+    </nav>
+    <main role="main">
+      <!-- 
+        Behavior Observed:
+          - Safari (Mac)
+            - VO will announce the number of total tabs and the index of focused tab
+            - VO announce tab as selected if we focus on selected tab
+          - Chrome (Mac)
+            - VO will announce the number of total tabs and the index of focused tab
+            - VO announce every focused tab as selected
+            - Everything works for ChromeVox
+        Conclusion:
+          This pattern SHOULD be used!
+      -->
+      <div class="tabs-list" role="tablist" aria-label="Tabs List"
+        aria-orientation="horizontal">
+          <button class="tab" role="tab">Tab 1</button>
+          <button class="tab" role="tab">Tab 2</button>
+          <button class="tab" role="tab">Tab 3</button>
+      </div>
+      <!-- 
+        Behavior Observed:
+          - Safari (Mac)
+            - VO will NOT announce the number of total tabs and the index of focused tab
+            - VO announce tab as selected if we focus on selected tab
+          - Chrome (Mac)
+            - VO will announce the number of total tabs and the index of focused tab 
+               incorrectly. It will always say tab 1 of 1 for every focused tab
+            - VO announce every focused tab as selected
+            - On ChromeVox, clicking on tab doesn't make it selected. So, the
+              click handler doesn't even work!!
+        Conclusion:
+          This pattern should NOT be used!
+      -->
+<!--       <ul class="tabs-list" role="tablist" aria-label="Tabs List">
+        <li>
+          <button class="tab" role="tab">Tab 1</button>
+        </li>
+        <li>
+          <button class="tab" role="tab">Tab 2</button>
+        </li>
+        <li>
+          <button class="tab" role="tab">Tab 3</button>
+        </li>
+      </ul> -->
+    </main>
+    <footer role="contentinfo">
+      <!-- footer content -->
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
