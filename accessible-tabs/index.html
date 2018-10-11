@@ -21,8 +21,6 @@
             - VO will announce the number of total tabs and the index of focused tab
             - VO announce every focused tab as selected
             - Everything works for ChromeVox
-        Conclusion:
-          This pattern SHOULD be used!
       -->
 <!--       <div class="tabs-list" role="tablist" aria-label="Tabs List"
         aria-orientation="horizontal">
@@ -46,7 +44,8 @@
             - On ChromeVox, clicking on tab doesn't make it selected. So, the
               click handler doesn't even work!! (NO LONGER THE CASE)
         Conclusion:
-          First pattern is better
+          This pattern works as well. However, it requires adding presentation role
+          to the li tags.
       -->
       <ul class="tabs-list" role="tablist" aria-label="Tabs List">
         <li role="presentation">
