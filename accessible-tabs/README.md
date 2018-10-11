@@ -82,7 +82,7 @@ Here are the behaviors of each combinations that I observed:
 These are quite surprising results for me.
 - Somehow, using the `ul/li` actually make the screen reader's interpration worse. However, adding presentation role to the `li` tag seems to fix all them.
 - ~~On both Safari and Chrome, VO does not produce correct number of total tabs (BAD!)~~
-- On Chrome, VO announces every focused tab as `selected` (BAD!)
+- On Chrome, VO announces every focused tab as `selected`. This is not good but my guess is this is due to the incompatibility between VO and Chrome.
 - ~~On ChromeVox, clicking on tab doesn't even work (YIPES!)~~
 
 So, in conclusion, both patterns seem to work just fine. However, the second pattern will require adding presentation role to each `li` tags
