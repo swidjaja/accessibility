@@ -24,37 +24,41 @@
         Conclusion:
           This pattern SHOULD be used!
       -->
-      <div class="tabs-list" role="tablist" aria-label="Tabs List"
+<!--       <div class="tabs-list" role="tablist" aria-label="Tabs List"
         aria-orientation="horizontal">
           <button class="tab" role="tab">Tab 1</button>
           <button class="tab" role="tab">Tab 2</button>
           <button class="tab" role="tab">Tab 3</button>
-      </div>
+      </div> -->
       <!-- 
+        UPDATE (10/10) - Using presentation role for li seems to fix some of the issues
+        observed. However, Chrome still announces every focused tab as selected
         Behavior Observed:
           - Safari (Mac)
-            - VO will NOT announce the number of total tabs and the index of focused tab
+            - VO will NOT announce the number of total tabs and the index of focused tab (
+            NO LONGER THE CASE)
             - VO announce tab as selected if we focus on selected tab
           - Chrome (Mac)
             - VO will announce the number of total tabs and the index of focused tab 
                incorrectly. It will always say tab 1 of 1 for every focused tab
+               (NO LONGER THE CASE)
             - VO announce every focused tab as selected
             - On ChromeVox, clicking on tab doesn't make it selected. So, the
-              click handler doesn't even work!!
+              click handler doesn't even work!! (NO LONGER THE CASE)
         Conclusion:
-          This pattern should NOT be used!
+          First pattern is better
       -->
-<!--       <ul class="tabs-list" role="tablist" aria-label="Tabs List">
-        <li>
+      <ul class="tabs-list" role="tablist" aria-label="Tabs List">
+        <li role="presentation">
           <button class="tab" role="tab">Tab 1</button>
         </li>
-        <li>
+        <li role="presentation">
           <button class="tab" role="tab">Tab 2</button>
         </li>
-        <li>
+        <li role="presentation">
           <button class="tab" role="tab">Tab 3</button>
         </li>
-      </ul> -->
+      </ul>
     </main>
     <footer role="contentinfo">
       <!-- footer content -->
