@@ -70,7 +70,7 @@ Here are the behaviors of each combinations that I observed:
   - Everything works for ChromeVox
   
 - Safari + VO (Mac)
-  ~~- VO will NOT announce the number of total tabs and the index of focused tab ~~
+  - ~~VO will NOT announce the number of total tabs and the index of focused tab~~
   - VO announce tab as selected if we focus on selected tab
 - Chrome + VO (Mac)
   - ~~VO will announce the number of total tabs and the index of focused tab 
