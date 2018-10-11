@@ -1,11 +1,14 @@
+#### UPDATE
+I added the presentation role to each `li` tags in second pattern and that seemed to fix most of the issues that I encountered before.
+
+## Background
 For this experiment, I am trying to come up with an accessible tabs list solution. I tried the following two patterns
 
 ```
-<div class="tabs-list" role="tablist" aria-label="Tabs List"
-  aria-orientation="horizontal">
-    <button class="tab" role="tab">Tab 1</button>
-    <button class="tab" role="tab">Tab 2</button>
-    <button class="tab" role="tab">Tab 3</button>
+<div class="tabs-list" role="tablist" aria-label="Tabs List">
+  <button class="tab" role="tab">Tab 1</button>
+  <button class="tab" role="tab">Tab 2</button>
+  <button class="tab" role="tab">Tab 3</button>
 </div>
 ```
 
@@ -13,13 +16,13 @@ and
 
 ```
 <ul class="tabs-list" role="tablist" aria-label="Tabs List">
-  <li>
+  <li role="presentation>
     <button class="tab" role="tab">Tab 1</button>
   </li>
-  <li>
+  <li role="presentation">
     <button class="tab" role="tab">Tab 2</button>
   </li>
-  <li>
+  <li role="presentation">
     <button class="tab" role="tab">Tab 3</button>
   </li>
 </ul>
@@ -67,19 +70,19 @@ Here are the behaviors of each combinations that I observed:
   - Everything works for ChromeVox
   
 - Safari + VO (Mac)
-  - VO will NOT announce the number of total tabs and the index of focused tab
+  ~~- VO will NOT announce the number of total tabs and the index of focused tab ~~
   - VO announce tab as selected if we focus on selected tab
 - Chrome + VO (Mac)
-  - VO will announce the number of total tabs and the index of focused tab 
-     incorrectly. It will always say tab 1 of 1 for every focused tab
+  - ~~VO will announce the number of total tabs and the index of focused tab 
+     incorrectly. It will always say tab 1 of 1 for every focused tab~~
   - VO announce every focused tab as selected
 - Chrome + ChromeVox
-  - On ChromeVox, clicking on tab doesn't event make it selected.
+  - ~~On ChromeVox, clicking on tab doesn't event make it selected.~~
     
 These are quite surprising results for me.
-- Somehow, using the `ul/li` actually make the screen reader's interpration worse. 
-- On both Safari and Chrome, VO does not produce correct number of total tabs (BAD!)
+- Somehow, using the `ul/li` actually make the screen reader's interpration worse. However, adding presentation role to the `li` tag seems to fix all them.
+- ~~On both Safari and Chrome, VO does not produce correct number of total tabs (BAD!)~~
 - On Chrome, VO announces every focused tab as `selected` (BAD!)
-- On ChromeVox, clicking on tab doesn't even work (YIPES!)
+- ~~On ChromeVox, clicking on tab doesn't even work (YIPES!)~~
 
-So, in conclusion, we should stick with first pattern. 
+So, in conclusion, both patterns seem to work just fine. However, the second pattern will require adding presentation role to each `li` tags
