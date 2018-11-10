@@ -25,17 +25,26 @@
   width: 148px;
   margin: 0;
   outline-offset: -4px;
+  max-height: 144px;
+  overflow-y: auto;
+  position: absolute;
 }
 
 [role="option"] {
   display: block;
-  padding: 0 1em;
   line-height: 1.8;
-  margin: 0.25em 0 0.5em;
+  padding: 0.25em 1em;
+
+  position: relative;
 }
 
 .item.focused {
   background-color: rgba(60, 174, 251, 0.1);
+}
+
+.item.focused[aria-selected="true"],
+.item[aria-selected="true"] {
+  background-color: rgba(60, 174, 251, 1);
 }
 
 .sr-only {
