@@ -1,7 +1,7 @@
 /**
  * Accessible collapsable dropdown listbox
  * This widget is implemented based on WAI-ARIA 1.1 suggestion.
- * @author  Sugi
+ * @author Sugi
  */
 window.sw = window.sw || {};
 window.sw.a11y = window.sw.a11y || {};
@@ -97,8 +97,7 @@ window.sw.a11y.CollapsableList = {
 
   updateScrollPosition() {
     const itemsList = this._itemsListEl;
-    const activeDescendant = itemsList.getAttribute('aria-activedescendant');
-    const activeElement = itemsList.querySelector('#' + activeDescendant);
+    const activeElement = this.getActiveDescendant();
     const itemsListHeight = itemsList.clientHeight;
     const itemsListScrollTop = itemsList.scrollTop;
     const activeElementOffsetTop = activeElement.offsetTop;
@@ -136,14 +135,14 @@ window.sw.a11y.CollapsableList = {
 
     itemsList.addEventListener('keydown', (event) => {
       const keyCode = event.keyCode;
-      const activeDescendant = itemsList.getAttribute('aria-activedescendant');
-      const activeElement = itemsList.querySelector('#' + activeDescendant);
 
       if (keyCode === this._keyCodes.UP_ARROW || keyCode === this._keyCodes.DOWN_ARROW) {
         event.preventDefault();
+        const activeElement = this.getActiveDescendant();
         const nextActiveElement = (keyCode === this._keyCodes.UP_ARROW) ?
           activeElement.previousElementSibling :
           activeElement.nextElementSibling;
+
         this.updateFocusedEl(activeElement, nextActiveElement);
         this.updateScrollPosition();
       } else if (keyCode === this._keyCodes.ENTER || keyCode === this._keyCodes.ESC) {
