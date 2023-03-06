@@ -1,0 +1,52 @@
+.carousel--list {
+  width: 306px;
+  height: 100px;
+  overflow-x: scroll;
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  scrollbar-width: none;
+  margin: 0 10px;
+  padding: 0;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carousel--list::-webkit-scrollbar { 
+  display: none;
+}
+
+.carousel--item a {
+  width: 94px;
+  min-width: 94px;
+  margin: 0 3px;
+  scroll-snap-align: start;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline-offset: -2px;
+}
+
+.carousel {
+  display: flex;
+}
+
+.carousel--prev, .carousel--next {
+  height: 50px;
+  width: 50px;
+  margin-top: 25px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.carousel--prev:disabled, .carousel--next:disabled {
+  cursor: auto;
+}
+
+.carousel--container {
+  position: relative;
+}
