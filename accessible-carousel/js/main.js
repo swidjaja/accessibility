@@ -4,6 +4,7 @@ const root = document.getElementById('carouselContainer');
 const DELTA = 3;
 const DELAY_BEFORE_AUTO_FOCUS = 1000; // in ms
 const carouselMaxScroll = root.scrollWidth - root.clientWidth;
+const AUTO_FOCUS_ON_FIRST_VISIBLE_ITEM = false;
 
 const options = {
   root,
@@ -57,9 +58,9 @@ const updateNextBtnState = (newScrollLeft) => {
 };
 
 const setFocusToFirstVisibleItem = () => {
+  if (!AUTO_FOCUS_ON_FIRST_VISIBLE_ITEM) return;
   setTimeout(() => {
     const firstVisibleItem = document.querySelector('.carousel--item a:not([tabindex])');
-    console.log(firstVisibleItem);
     firstVisibleItem.focus();
   }, DELAY_BEFORE_AUTO_FOCUS);
 }
